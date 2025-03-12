@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">NIMBUS</string>
+    <string name="login">Log in</string>
+    <string name="email">Email adress</string>
+    <string name="password">Password</string>
+    <string name="forgot_password">Forgot password?</string>
+    <string name="dont_have">Don´t have an account?</string>
+    <string name="derechos_reser">Derechos reservados Nimbus.inc</string>
+    <string name="create_account">Create your account</string>
+    <string name="name">Name</string>
+    <string name="how_feel">How you feel today?</string>
+    <string name="nueve">9</string>
+    <string name="streak">Streak days</string>
+    <string name="sign_up">Sing up</string>
+
+
+</resources>
