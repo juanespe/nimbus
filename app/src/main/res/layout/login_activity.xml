@@ -62,20 +62,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_email" />
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="133dp"
-        android:layout_height="47dp"
-        android:layout_marginTop="132dp"
-        android:backgroundTint="@color/pink"
-        android:fontFamily="@font/open_sans"
-        android:text="@string/login"
-        android:textColor="@color/green"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_password" />
+  <Button
+    android:id="@+id/button"
+    android:layout_width="133dp"
+    android:layout_height="47dp"
+    android:layout_marginTop="108dp"
+    android:backgroundTint="@color/pink"
+    android:fontFamily="@font/open_sans"
+    android:text="@string/login"
+    android:textColor="@color/green"
+    android:textSize="16sp"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.176"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/et_password" />
 
     <TextView
         android:id="@+id/tv_forgot"

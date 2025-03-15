@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
+  <ImageView
         android:id="@+id/imageView2"
         android:layout_width="70dp"
         android:layout_height="70dp"
@@ -64,11 +64,64 @@
         tools:layout_editor_absoluteX="46dp"
         tools:layout_editor_absoluteY="52dp" />
 
-    <FrameLayout
-        android:layout_width="237dp"
-        android:layout_height="169dp"
-        android:background="@color/gray"
-        tools:layout_editor_absoluteX="87dp"
-        tools:layout_editor_absoluteY="457dp" />
+  <Button
+    android:id="@+id/button4"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="68dp"
+    android:backgroundTint="@color/pink"
+    android:text="Add more"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.82"
+    app:layout_constraintStart_toStartOf="parent" />
+
+  <Button
+    android:id="@+id/button5"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="68dp"
+    android:backgroundTint="@color/gray"
+    android:text="Back"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toStartOf="@+id/button4"
+    app:layout_constraintHorizontal_bias="0.562"
+    app:layout_constraintStart_toStartOf="parent" />
+
+  <com.google.android.material.appbar.MaterialToolbar
+    android:id="@+id/materialToolbar"
+    android:layout_width="323dp"
+    android:layout_height="149dp"
+    android:background="@color/gray"
+    android:minHeight="?attr/actionBarSize"
+    android:theme="?attr/actionBarTheme"
+    tools:layout_editor_absoluteX="46dp"
+    tools:layout_editor_absoluteY="454dp" />
+
+  <TextView
+    android:id="@+id/textView5"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Streak"
+    android:textColor="@color/blanquito"
+    tools:layout_editor_absoluteX="185dp"
+    tools:layout_editor_absoluteY="555dp" />
+
+  <TextView
+    android:id="@+id/textView6"
+    android:layout_width="5dp"
+    android:layout_height="16dp"
+    android:text="0"
+    android:textColor="@color/blanquito"
+    tools:layout_editor_absoluteX="201dp"
+    tools:layout_editor_absoluteY="536dp" />
+
+  <ImageView
+    android:id="@+id/imageView11"
+    android:layout_width="85dp"
+    android:layout_height="127dp"
+    app:srcCompat="@drawable/coraz_n"
+    tools:layout_editor_absoluteX="163dp"
+    tools:layout_editor_absoluteY="428dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
