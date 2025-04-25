@@ -37,6 +37,7 @@ android {
 
 dependencies {
 
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
@@ -47,6 +48,11 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+// Volley para peticiones HTTP
+
+    implementation ("com.android.volley:volley:1.2.1")
+// Picasso para cargar imágenes desde URLs
+    implementation ("com.squareup.picasso:picasso:2.71828")
 
 
 }
