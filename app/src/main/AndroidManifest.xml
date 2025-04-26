@@ -13,7 +13,7 @@
         android:theme="@style/Theme.AppNimbus"
         tools:targetApi="31">
         <activity
-            android:name=".NotaActivity"
+            android:name=".PrincipalActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
