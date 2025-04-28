@@ -26,24 +26,24 @@ class NotaActivity : AppCompatActivity() {
         id = null,
         title= titulo,
         content = contenido,
-        customer = 345L //
+        customer = Customer(232) //
       )
 
-      val apiService = ApiClient.retrofit.create(NotasApiService::class.java)
-      apiService.guardarNota(nota).enqueue(object : Callback<Nota> {
-        override fun onResponse(call: Call<Nota>, response: Response<Nota>) {
-          if (response.isSuccessful) {
-            Toast.makeText(this@NotaActivity, "Nota guardada con éxito", Toast.LENGTH_SHORT).show()
-            finish()
-          } else {
-            Toast.makeText(this@NotaActivity, "Error al guardar la nota", Toast.LENGTH_SHORT).show()
+        val apiService = ApiClient.retrofit.create(NotasApiService::class.java)
+        apiService.guardarNota(nota).enqueue(object : Callback<Nota> {
+          override fun onResponse(call: Call<Nota>, response: Response<Nota>) {
+            if (response.isSuccessful) {
+              Toast.makeText(this@NotaActivity, "Nota guardada con éxito", Toast.LENGTH_SHORT).show()
+              finish()
+            } else {
+              Toast.makeText(this@NotaActivity, "Error al guardar la nota :${response.code()}", Toast.LENGTH_SHORT).show()
+            }
           }
-        }
 
-        override fun onFailure(call: Call<Nota>, t: Throwable) {
-          Toast.makeText(this@NotaActivity, "Fallo en la conexión", Toast.LENGTH_SHORT).show()
-        }
-      })
+          override fun onFailure(call: Call<Nota>, t: Throwable) {
+            Toast.makeText(this@NotaActivity, "Fallo en la conexión : ${t.message}", Toast.LENGTH_SHORT).show()
+          }
+        })
+      }
     }
-  }
 }

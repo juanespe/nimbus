@@ -6,10 +6,10 @@ import retrofit2.http.GET
 import retrofit2.http.POST
 
 data class Nota(
-    val id: Long?,
+    val id: Long? = null,
     val title: String,
     val content: String,
-    val customer: Long
+    val customer: Customer
 )
 data class Customer(
     val id: Long
