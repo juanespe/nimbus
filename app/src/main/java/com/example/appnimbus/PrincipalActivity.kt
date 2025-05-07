@@ -1,53 +1,69 @@
 package com.example.appnimbus
 
 import android.os.Bundle
+import android.util.Log
+import android.widget.Button
 import android.widget.ImageView
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
+import com.android.volley.toolbox.JsonArrayRequest
+import com.android.volley.toolbox.Volley
 import com.squareup.picasso.Picasso
 
 class PrincipalActivity : AppCompatActivity() {
-        override fun onCreate(savedInstanceState: Bundle?) {
-            super.onCreate(savedInstanceState)
-            setContentView(R.layout.activity_principal)
 
-            val imageView1 = findViewById<ImageView>(R.id.imageView23)
-            val imageView2 = findViewById<ImageView>(R.id.imageView19)
-            val imageView3 = findViewById<ImageView>(R.id.imageView20)
-            val imageView4 = findViewById<ImageView>(R.id.imageView21)
-            val imageView5 = findViewById<ImageView>(R.id.imageView22)
-            val imageView6 = findViewById<ImageView>(R.id.imageView18)
+  override fun onCreate(savedInstanceState: Bundle?) {
+    super.onCreate(savedInstanceState)
+    setContentView(R.layout.activity_principal)
 
+    cargarImagenesDesdeBackend()
 
-            val url1 = "https://cdn-icons-png.flaticon.com/512/742/742749.png"
-            val url2 = "https://cdn-icons-png.flaticon.com/512/742/742751.png"
-            val url3 = "https://cdn-icons-png.flaticon.com/512/742/742774.png"
-            val url4 = "https://cdn-icons-png.flaticon.com/512/742/742752.png"
-            val url5 = "https://cdn-icons-png.flaticon.com/512/742/742780.png"
-            val url6 = "https://cdn-icons-png.flaticon.com/512/742/742757.png"
+    val emociones = listOf("Happy", "Very Happy", "Normal", "Bad", "Really bad", "Angry")
+    val botones = listOf(
+      findViewById<Button>(R.id.button8),
+      findViewById<Button>(R.id.button13),
+      findViewById<Button>(R.id.button9),
+      findViewById<Button>(R.id.button10),
+      findViewById<Button>(R.id.button11),
+      findViewById<Button>(R.id.button12)
+    )
 
+    for ((index, boton) in botones.withIndex()) {
+      boton.setOnClickListener {
+        val intent = Intent(this, NotaActivity::class.java)
+        intent.putExtra("emocion", emociones[index])  // Enviar emoción seleccionada
+        startActivity(intent)
+      }
+    }
+  }
 
-            Picasso.get()
-                .load(url1)
-                .into(imageView1)
+  private fun cargarImagenesDesdeBackend() {
+    val url = "http://10.0.2.2:8080/imagenes"
 
-            Picasso.get()
-                .load(url2)
-                .into(imageView2)
+    val imageViews = listOf(
+      findViewById<ImageView>(R.id.imageView23),
+      findViewById<ImageView>(R.id.imageView19),
+      findViewById<ImageView>(R.id.imageView20),
+      findViewById<ImageView>(R.id.imageView21),
+      findViewById<ImageView>(R.id.imageView22),
+      findViewById<ImageView>(R.id.imageView18)
+    )
 
-            Picasso.get()
-                .load(url3)
-                .into(imageView3)
+    val queue = Volley.newRequestQueue(this)
 
-            Picasso.get()
-                .load(url4)
-                .into(imageView4)
-
-            Picasso.get()
-                .load(url5)
-                .into(imageView5)
-
-            Picasso.get()
-                .load(url6)
-                .into(imageView6)
+    val jsonArrayRequest = JsonArrayRequest(
+      url,
+      { response ->
+        for (i in 0 until minOf(response.length(), imageViews.size)) {
+          val imageUrl = response.getString(i)
+          Picasso.get().load(imageUrl).into(imageViews[i])
         }
+      },
+      { error ->
+        Log.e("Volley", "Error al cargar imágenes: ${error.message}")
+      }
+    )
+
+    queue.add(jsonArrayRequest)
+  }
 }
