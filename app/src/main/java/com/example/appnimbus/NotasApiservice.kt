@@ -17,9 +17,9 @@ data class Customer(
 
 interface NotasApiService {
 
-    @GET("notes")
+    @GET("/notes")
     fun obtenerNotas(): Call<List<Nota>>
 
-    @POST("notes")
+    @POST("/notes")
     fun guardarNota(@Body nota: Nota): Call<Nota>
 }

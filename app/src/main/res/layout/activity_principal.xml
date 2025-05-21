@@ -69,13 +69,17 @@
 
   <com.google.android.material.appbar.MaterialToolbar
     android:id="@+id/materialToolbar3"
-    android:layout_width="412dp"
-    android:layout_height="205dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:background="@color/pink"
     android:minHeight="?attr/actionBarSize"
     android:theme="?attr/actionBarTheme"
     app:layout_constraintEnd_toEndOf="parent"
-    tools:layout_editor_absoluteY="2dp" />
+    tools:layout_editor_absoluteY="2dp"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+       />
+
 
   <TextView
       android:id="@+id/textView7"
